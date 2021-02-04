@@ -1,0 +1,40 @@
+.main-container{
+    background-color: #FBD062;
+    height: auto;
+    margin-top: 150px;
+    width: 100%;
+}
+.input-style{
+    width: 630px; 
+}
+
+.textArea-style{
+    width: 630px;
+    outline: none;
+    border: none;
+}
+
+.footer-button {
+    height: 44px;
+    width: 134px;
+    background-color: #111430;
+    color: white;
+    border-radius: 5px;
+    padding: 10px, 47px, 10px, 47px;
+  }
+  
+
+
+@media(max-width: 700px){
+    .input-style{
+        width: 400px;
+        margin-left: 50px;
+    }
+    .textArea-style{
+        width: 400px;
+        margin-left: 50px;
+    }
+    .footer-button{
+        margin-left: 50px;
+    }
+}
