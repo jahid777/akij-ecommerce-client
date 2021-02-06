@@ -9,7 +9,7 @@ const AllProductControl = () => {
     //all data read korsi
     const [productsData, setProductsData] = useState([])
     useEffect(()=>{
-        fetch('http://localhost:8000/controlProduct')
+        fetch('https://enigmatic-brook-14059.herokuapp.com/getALlDataForUpdate')
         .then(res => res.json())
         .then(data => setProductsData(data))
     },[productsData])
@@ -17,7 +17,7 @@ const AllProductControl = () => {
 
     
     const handleDelete = (id) => {
-        fetch(`http://localhost:8000/deleteProduct/${id}`, {
+        fetch(`https://enigmatic-brook-14059.herokuapp.com/deleteProduct/${id}`, {
             method: "DELETE",
           })
             .then((res) => res.json())
@@ -31,7 +31,7 @@ const AllProductControl = () => {
 
     //product update korer jonno single product load
     const loadProduct = (id) => {
-        fetch(`http://localhost:8000/singleProduct/${id}`)
+        fetch(`https://enigmatic-brook-14059.herokuapp.com/singleProduct/${id}`)
             .then(res => res.json())
             .then(result => {
             //   console.log(result);
@@ -41,9 +41,9 @@ const AllProductControl = () => {
 
     //akhane input ar data raktesi
     const [dataOfInput, setDataOfInput] = useState({});
-    //product update submiting korer jonno 
+    //product update submiting korer jonno.. 
     const updateProduct = (id) =>{
-        fetch(`http://localhost:8000/update/${id}`, {
+        fetch(`https://enigmatic-brook-14059.herokuapp.com/update/${id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json" 
@@ -64,6 +64,11 @@ const AllProductControl = () => {
     }
 
 
+    const imgDesign = {
+      height:'150px',
+      width: '150px',
+      marginTop: '25px'
+    }
 
 
     return (
@@ -73,7 +78,14 @@ const AllProductControl = () => {
             <div key={index} class="card mb-3 container mt-5" style={{maxWidth: "540px"}}>
             <div class="row no-gutters">
               <div class="col-md-4">
-                <img style={{height:'150px',width:'150px',marginTop:'25px'}} src={`http://localhost:8000/${data?.file?.name}`} alt=""/>
+
+              {
+            data.image ? <img style={imgDesign} src={`data:image/png;base64,${data.image.img}`} alt=""/>
+            :<img style={imgDesign}  src={`http://enigmatic-brook-14059.herokuapp.com/${data?.file?.name}`} class="card-img-top" alt="..."/>
+           }
+
+
+                {/* <img style={{height:'150px',width:'150px',marginTop:'25px'}} src={`https://enigmatic-brook-14059.herokuapp.com/${data?.file?.name}`} alt=""/> */}
               </div>
               <div class="col-md-8">
                 <div class="card-body">
@@ -95,18 +107,26 @@ const AllProductControl = () => {
                   </div>
               </div>
                
-                <form action="" onSubmit={()=>updateProduct(data._id)}>
+                <form action="" onSubmit={()=>updateProduct(data._id)} className="mb-2">
                    <input type="text" name="name" 
+                   className="mb-2 mr-2"
+                   placeholder="name"
                     onChange={handleChange}
                    defaultValue={singleProductData.name} id=""/>
                     <input type="text" name="price" 
+                    placeholder="price"
                     onChange={handleChange}
                     defaultValue={singleProductData.price} id=""/>
                     <input type="text" name="date" 
+                    placeholder="date"
                     onChange={handleChange}
-                    defaultValue={singleProductData.date} id=""/> <br/>
+                    className="mr-2"
+                    defaultValue={singleProductData.date} id=""/> 
                     
-                   <input type="submit" value="Submit"/>
+                   <input type="submit" value="Submit"
+                   style={{color:'white',borderRadius:'5px'}}
+                   className="bg bg-primary"
+                   />
                 </form>
                
             </div>

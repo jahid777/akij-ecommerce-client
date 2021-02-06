@@ -27,7 +27,7 @@ const CreateProduct = () => {
         formData.append('date', createdProduct.date)
         formData.append('price', createdProduct.price)
          
-        fetch('http://localhost:8000/addAProduct', {
+        fetch('https://enigmatic-brook-14059.herokuapp.com/addAProduct', {
           method: 'POST',
           body: formData
         })
