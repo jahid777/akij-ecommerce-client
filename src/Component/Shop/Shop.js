@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Product from "../Product/Product";
+import loading from '../../image/loading.webp';
 
 const Shop = () => {
   const [product, setProduct] = useState([]);
   const [search, setSearch] = useState("");
   console.log("this is printing",search);
+  
 
   //all product
   // useEffect(()=>{
@@ -60,6 +62,9 @@ const Shop = () => {
       </form>
 
       <div class="container-fluid mt-5 row">
+        {
+          product.length === 0 && <img style={{height:'350px', margin:'auto'}} src={loading} alt=""/>
+        }
         {product.map(pd => (
           <Product product={pd}></Product>
         ))}
