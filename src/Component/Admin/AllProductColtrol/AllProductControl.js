@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import loading from "../../../image/loading.webp";
+import Header from "../../Header/Header";
 const AllProductControl = () => {
   //edit korer jonno single data take state a raksi
   const [singleProductData, setSingleProductData] = useState({});
@@ -67,6 +68,7 @@ const AllProductControl = () => {
 
   return (
     <>
+    <Header></Header>
       {productsData.length === 0 && (
         <img style={{ height: "350px" }} src={loading} alt="" />
       )}

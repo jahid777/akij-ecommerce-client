@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import uploadIcon from '../../../image/upload.png';
+import Header from '../../Header/Header';
 import './CreateProduct.css';
 
 const CreateProduct = () => {
@@ -43,6 +44,7 @@ const CreateProduct = () => {
        }
     return (
         <div className="rightOption">
+          <Header></Header>
       <form onSubmit={handleSubmit} className="order-form" action="">
         <div className="form-group">
           
