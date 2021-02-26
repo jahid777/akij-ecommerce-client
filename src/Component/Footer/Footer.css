@@ -42,14 +42,14 @@
 @media(max-width: 1200px){
     .input-style{
         width: 320px;
-        margin-left: 20px;
+        margin-left: 15px;
     }
     .textArea-style{
         width: 320px;
-        margin-left: 20px;
+        margin-left: 15px;
     }
     .footer-button{
-        margin-left: 20px;
+        margin-left: 15px;
     }
 }
 
